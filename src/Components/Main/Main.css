@@ -1,0 +1,471 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Manrope:wght@200..800&family=Overpass:ital,wght@0,100..900;1,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --Lime: hsl(61, 70%, 52%);
+    --Light-lime: hsl(61, 53%, 56%);
+    --Red: hsl(4, 69%, 50%);
+    --White: hsl(0, 0%, 100%);
+    --Slate-100: hsl(202, 86%, 94%);
+    --Slate-300: hsl(203, 41%, 72%);
+    --Slate-500: hsl(200, 26%, 54%);
+    --Slate-700: hsl(200, 24%, 40%);
+    --Slate-900: hsl(202, 55%, 16%);
+    --Slate-910: hsl(201, 68%, 12%);
+}
+
+body {
+    display: grid;
+    font-size: 16px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--Slate-100);
+    min-height: 100vh;
+    /* Weights: 500, 700 */
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* margin-top: auto; */
+}
+
+.calculator {
+    background-color: var(--White);
+    padding: 2rem;
+    border-radius: 20px 0 0 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.top h1 {
+    color: var(--Slate-900);
+    font-size: 20px;
+}
+
+.top a {
+    color: var(--Slate-500);
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.amount {
+    margin-bottom: 1rem;
+}
+
+.amount label {
+    margin-bottom: 0.5rem;
+}
+
+input:active {
+    background-color: var(--White);
+    /* margin-left: 0.5rem; */
+}
+
+label {
+    font-size: 15px;
+    color: var(--Slate-500);
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+}
+
+.amount-box {
+    display: flex;
+    border: 1px solid var(--Slate-900);
+}
+
+#amount {
+    width: 100%;
+    font-size: 20px;
+    color: var(--Slate-900);
+    border: 0;
+    outline: none;
+}
+
+#amount:active {
+    background-color: var(--White);
+    margin-left: 0.5rem;
+}
+
+.pound-icon {
+    background-color: var(--Slate-100);
+    padding: 0.4rem;
+    font-size: 37px;
+    color: var(--Slate-700);
+}
+
+.mort {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.term-box{
+    display: flex;
+    border: 1px solid var(--Slate-900);
+    margin-right: 0.5rem;
+}
+
+#term {
+    font-size: 20px;
+    color: var(--Slate-900);
+    border: 0;
+    outline: none;
+    margin: 0.5rem auto;
+}
+
+.term-box p {
+    font-weight: 600;
+    font-size: 15px;
+    background-color: var(--Slate-100);
+    /* margin: 0.5rem auto; */
+    padding: 0.5rem;
+}
+
+.rate-box {
+    border: 1px solid var(--Slate-900);
+    display: flex;
+    margin-left: 0.5rem;
+}
+
+#interest {
+    font-size: 20px;
+    color: var(--Slate-900);
+    border: 0;
+    outline: none;
+    background-color: var(--White);
+    /* margin: 0.5rem auto; */
+}
+
+.percent-icon {
+    background-color: var(--Slate-100);
+    padding: 0.8rem;
+    font-size: 39px;
+    text-align: end;
+}
+
+#amount-box:hover, #input2:hover, #input3:hover {
+    border: 1px solid var(--Slate-300);
+}
+
+.type {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    margin-bottom: 0.8rem;
+}
+
+.checkbox {
+    display: flex;
+    flex-direction: row;
+    padding: 0.5rem 13rem 0.5rem 1rem;
+    border: 1px solid var(--Slate-900);
+    border-radius: 5px;
+    margin-top: 0.8rem;
+}
+
+.checkbox:hover {
+    border: 1px solid var(--Lime);
+}
+
+.checkbox input {
+    color: var(--Slate-900);
+    font-weight: 700;
+    /* margin-left: 0.5rem; */
+}
+
+button {
+    font-weight: 700;
+    color: var(--Slate-900);
+    background-color: var(--Lime);
+    border: 0;
+    border-radius: 20px;
+    padding: 0.5rem 2rem;
+    width: 15rem;
+}
+
+button:hover {
+    background-color: var(--Light-lime);
+}
+
+.calc-img {
+    width: 12%;
+    height: auto;
+    padding-right: 0.3rem;
+}
+
+.error{
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--Red);
+}
+
+/* Result Styling */
+.result {
+    background-color: var(--Slate-900);
+    color: var(--White);
+    border-radius: 0 10px 10px 60px;
+    max-width: 35%;
+}
+
+.empty {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5.1rem 2rem;
+}
+
+.empty-form {
+    text-align: center;
+}
+
+.empty-form h2{
+    font-size: 20px;
+    margin-top: 1rem;
+}
+
+.empty-form p {
+    margin: auto;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.5;
+    margin-top: 1rem;
+    color: var(--Slate-300);
+}
+
+/* Filled form */
+
+.filled {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--Slate-900);
+    color: var(--White);
+    border-radius: 0 10px 10px 40px;
+    padding: 2rem 2rem 6rem 2rem;
+}
+
+.fill-article  h3{
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.fill-article p {
+    text-align: start;
+    margin-top: 1rem;
+    font-size: 13px;
+    color: var(--Slate-500);
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.calc-result {
+    padding: 1rem;
+    background-color: var(--Slate-910);
+    border-top: 2px solid var(--Lime);
+    border-radius: 8px;
+    margin-top: 2rem;
+}
+
+.calc-result p {
+    color: var(--Slate-500);
+    font-size: 11px;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+#monthly {
+    color: var(--Lime);
+    font-size: 35px;
+    font-weight: 600;
+}
+
+.term-pay {
+    border-top: 1px solid var(--Slate-700);
+    margin-top: 1.5rem;
+}
+
+.term-pay p {
+    font-weight: 500;
+    margin-top: 1.5rem;
+}
+
+#termly {
+    font-weight: 600;
+}
+
+@media screen and (max-width: 37.5rem){
+    .container {
+        flex-direction: column;
+        min-height: 100vh;
+    }
+    
+    .calculator {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .top {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .top h1 {
+        color: var(--Slate-900);
+        font-size: 30px;
+    }
+    
+    .top a {
+        font-size: 18px;
+    }
+    
+    .amount label {
+        margin-bottom: 0.7rem;
+    }
+
+    #amount {
+        padding: 0px;
+    }
+
+    .pound-icon {
+        padding: 0.5rem;
+        font-size: 45px;
+    }
+
+    .term-box{
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+    
+    #term {
+        margin: 0;
+        padding: 0 0 0 0.5rem;
+        width: 100%;
+    }
+    
+    .term-box p {
+        font-weight: 600;
+        font-size: 18px;
+        background-color: var(--Slate-100);
+        padding: 0.5rem;
+    }
+
+    .rate-box {
+        margin-left: 0;
+    }
+    
+    #interest {
+        width: 100%;
+        padding:0 0 0 0.5rem;
+    }
+    
+    .percent-icon {
+        padding: 0.8rem;
+        font-size: 40px;
+    }
+    
+    .mort {
+        flex-direction: column;
+    }
+    
+    .mort input {
+        margin-bottom: 0.8rem;
+    }
+
+    input {
+        padding: 1.8rem;
+    }
+    
+    label {
+        font-size: 18px;
+    }
+
+    #input1 {
+        width: 100%;
+        padding: 1rem;
+    }
+    
+    #input2 {
+        padding: 1rem;
+        width: 100%;
+    }
+    
+    #input3 {
+        padding: 1rem;
+        width: 100%;
+    }
+    
+    .checkbox {
+        display: flex;
+        margin-top: 1rem;
+    }
+
+    .calc-img {
+        width: 10%;
+        height: auto;
+    }
+    
+    button {
+        font-size: 18px;
+        padding: 0.5rem 1.5rem;
+        width: 100%;
+    }
+
+    /* Result Styling */
+    .result {
+        max-width: 100%;
+    }
+    
+    .empty {
+        display: flex;
+    }
+
+    .empty-form h2{
+        font-size: 25px;
+    }
+
+    .empty-form p{
+        font-size: 17px;
+    }
+
+    /* Filled form */
+    .filled {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .fill-article  h3{
+        font-size: 25px;
+    }
+    
+    .fill-article p {
+        font-size: 16px;
+    }
+    
+    .calc-result {
+        padding: 2rem;
+        border-top: 5px solid var(--Lime);
+    }
+    
+    .calc-result p {
+        font-size: 15px;
+    }
+
+    #monthly {
+        font-size: 40px;
+    }
+    
+    #termly {
+        font-size: 25px;
+    }
+}
